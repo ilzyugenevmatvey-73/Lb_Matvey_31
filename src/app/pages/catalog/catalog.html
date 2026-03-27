@@ -1,0 +1,51 @@
+<section class="catalog">
+  <div class="catalog__head">
+    <div>
+      <p class="catalog__eyebrow">Каталог курсов</p>
+      <h1>3D‑моделирование без деления на рубрики</h1>
+      <p class="catalog__text">
+        Все курсы собраны в одном общем каталоге. Можно открыть любую карточку,
+        посмотреть детали и оставить сообщение в чате участников.
+      </p>
+    </div>
+
+    <div class="catalog__summary" [ngStyle]="{
+      'box-shadow': likedCount > 0 ? '0 18px 36px rgba(123, 116, 255, 0.18)' : '0 14px 28px rgba(4, 9, 24, 0.16)',
+      'transform': likedCount > 0 ? 'scale(1.02)' : 'scale(1)',
+      'transition': '0.3s'
+    }">
+      <span>Избранных курсов</span>
+      <strong>{{ likedCount }}</strong>
+      <p *ngIf="likedCount === 0">Пока ничего не отмечено — можно выбрать понравившиеся карточки.</p>
+      <p *ngIf="likedCount > 0">Ты уже отметил(а) понравившиеся курсы. Это тоже реализовано через привязки.</p>
+    </div>
+  </div>
+
+  <section class="catalog__grid" *ngIf="items.length > 0; else empty">
+    <div
+      class="catalog__item"
+      *ngFor="let item of items"
+      [ngStyle]="{
+        'box-shadow': item.liked ? '0 16px 34px rgba(255, 216, 108, 0.12)' : '0 10px 22px rgba(6, 10, 26, 0.14)',
+        'transform': item.liked ? 'translateY(-3px)' : 'translateY(0)',
+        'transition': '0.3s'
+      }"
+    >
+      <app-course-card
+        [id]="item.id"
+        [title]="item.title"
+        [image]="item.image"
+        [desc]="item.desc"
+        [format]="item.format"
+        [level]="item.level"
+        [duration]="item.duration"
+        [liked]="item.liked"
+        (likedChange)="item.liked = $event"
+      ></app-course-card>
+    </div>
+  </section>
+
+  <ng-template #empty>
+    <p class="catalog__empty">Каталог пока пуст.</p>
+  </ng-template>
+</section>

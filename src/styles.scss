@@ -1,1 +1,27 @@
-/* You can add global styles to this file, and also import other style files */
+html, body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  background:
+    radial-gradient(circle at top left, rgba(116, 111, 255, 0.18), transparent 28%),
+    radial-gradient(circle at right center, rgba(76, 213, 255, 0.12), transparent 24%),
+    linear-gradient(180deg, #070b17 0%, #0c1120 100%);
+  color: #f4f6ff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+}
+
+a,
+button,
+input {
+  font: inherit;
+}

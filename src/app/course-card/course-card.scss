@@ -1,0 +1,104 @@
+.card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 28px;
+  background: linear-gradient(180deg, rgba(20, 28, 52, 0.98), rgba(12, 16, 30, 0.98));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.card--live {
+  border-color: rgba(149, 128, 255, 0.42);
+}
+
+.card__preview {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  display: block;
+}
+
+.card__like {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(9, 14, 28, 0.7);
+  color: #ffffff;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.card__like--active {
+  background: rgba(255, 203, 90, 0.18);
+  color: #ffd86c;
+}
+
+.card__body {
+  padding: 22px;
+}
+
+.card__top-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.card__pill,
+.card__level {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-size: 13px;
+}
+
+.card__pill--live {
+  background: rgba(177, 152, 255, 0.18);
+  color: #d2c4ff;
+}
+
+.card__pill--recorded {
+  background: rgba(100, 226, 255, 0.15);
+  color: #a8f0ff;
+}
+
+.card__level--advanced {
+  background: rgba(255, 165, 128, 0.16);
+  color: #ffc3aa;
+}
+
+.card__level--base {
+  background: rgba(161, 255, 191, 0.14);
+  color: #b6ffcc;
+}
+
+.card__title {
+  margin: 0 0 10px;
+  font-size: 24px;
+  line-height: 1.2;
+  color: #ffffff;
+}
+
+.card__desc {
+  margin: 0;
+  color: #b8bfd7;
+  line-height: 1.55;
+  min-height: 98px;
+}
+
+.card__meta {
+  margin-top: 18px;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  color: #eff2ff;
+  font-size: 14px;
+}

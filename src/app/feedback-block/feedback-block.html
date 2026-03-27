@@ -1,0 +1,38 @@
+<app-feedback-shell>
+  <section class="feedback">
+    <div class="feedback__heading">
+      <h2>Чат участников</h2>
+      <p>Здесь можно оставить впечатление о курсе или задать вопрос по домашней работе.</p>
+    </div>
+
+    <div class="feedback__form">
+      <input
+        class="feedback__input feedback__input--small"
+        placeholder="Ваше имя"
+        [(ngModel)]="userName"
+      />
+
+      <input
+        class="feedback__input"
+        placeholder="Напишите комментарий..."
+        [(ngModel)]="newComment"
+        (keydown.enter)="addComment()"
+      />
+
+      <button class="feedback__button" type="button" (click)="addComment()">Отправить</button>
+    </div>
+
+    <p class="feedback__empty" *ngIf="comments.length === 0">Пока сообщений нет. Можно начать обсуждение первым.</p>
+
+    <div class="feedback__list" *ngIf="comments.length > 0">
+      <article class="message" *ngFor="let comment of comments; let i = index">
+        <div class="message__meta">
+          <strong>{{ comment.author }}</strong>
+          <span>{{ comment.createdAt | date:'dd.MM.yyyy HH:mm' }}</span>
+          <button type="button" (click)="removeComment(i)">Удалить</button>
+        </div>
+        <p>{{ comment.text }}</p>
+      </article>
+    </div>
+  </section>
+</app-feedback-shell>

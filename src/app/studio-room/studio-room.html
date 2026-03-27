@@ -1,0 +1,28 @@
+<section class="studio-room" *ngIf="course; else missing">
+  <a class="studio-room__back" routerLink="/catalog">← Назад к каталогу</a>
+
+  <div class="studio-room__hero">
+    <img [src]="course.image" [alt]="course.title" />
+
+    <div class="studio-room__content">
+      <p class="studio-room__eyebrow">Комната курса</p>
+      <h1>{{ course.title }}</h1>
+      <p class="studio-room__text">{{ course.desc }}</p>
+
+      <div class="studio-room__chips">
+        <span>{{ course.duration }}</span>
+        <span>{{ course.format === 'live' ? 'Live-разборы' : 'Записанный формат' }}</span>
+        <span>{{ course.level === 'advanced' ? 'Продвинутый уровень' : 'Базовый уровень' }}</span>
+      </div>
+    </div>
+  </div>
+
+  <app-feedback-block></app-feedback-block>
+</section>
+
+<ng-template #missing>
+  <section class="studio-room studio-room--missing">
+    <h1>Курс не найден</h1>
+    <a class="studio-room__back" routerLink="/catalog">Открыть каталог</a>
+  </section>
+</ng-template>

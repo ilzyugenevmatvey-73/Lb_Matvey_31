@@ -1,0 +1,52 @@
+<article
+  class="card"
+  (mouseenter)="isHovered = true"
+  (mouseleave)="isHovered = false"
+  [style.transform]="isHovered ? 'translateY(-6px)' : 'translateY(0)'"
+  [style.boxShadow]="
+    isHovered
+      ? '0 20px 48px rgba(4, 9, 24, 0.32)'
+      : '0 12px 28px rgba(7, 12, 28, 0.18)'
+  "
+  [class.card--live]="format === 'live'"
+  [attr.data-format]="format"
+  (click)="openRoom()"
+>
+  <img class="card__preview" [src]="image" [alt]="title" />
+
+  <button
+    class="card__like"
+    type="button"
+    [class.card__like--active]="liked"
+    (click)="toggleLike($event)"
+  >
+    {{ liked ? '★' : '☆' }}
+  </button>
+
+  <div class="card__body">
+    <div class="card__top-row">
+      <div [ngSwitch]="format">
+        <span *ngSwitchCase="'live'" class="card__pill card__pill--live">Live</span>
+        <span *ngSwitchCase="'recorded'" class="card__pill card__pill--recorded">Запись</span>
+      </div>
+
+      <span
+        class="card__level"
+        [ngClass]="{
+          'card__level--advanced': level === 'advanced',
+          'card__level--base': level === 'base'
+        }"
+      >
+        {{ level === 'advanced' ? 'Advanced' : 'Base' }}
+      </span>
+    </div>
+
+    <h3 class="card__title">{{ title }}</h3>
+    <p class="card__desc">{{ desc }}</p>
+
+    <div class="card__meta">
+      <span>{{ duration }}</span>
+      <span>Открыть комнату курса</span>
+    </div>
+  </div>
+</article>

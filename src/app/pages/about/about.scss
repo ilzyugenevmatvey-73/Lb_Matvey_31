@@ -1,0 +1,45 @@
+.about {
+  padding: 42px 48px 72px;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 24px;
+}
+
+.about__intro,
+.about__panel {
+  padding: 28px;
+  border-radius: 30px;
+  background: linear-gradient(180deg, rgba(19, 26, 48, 0.95), rgba(10, 15, 29, 0.95));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.about__eyebrow {
+  margin: 0 0 12px;
+  color: #9fb2ff;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 13px;
+}
+
+.about h1,
+.about h2 {
+  margin-top: 0;
+}
+
+.about p,
+.about li {
+  color: #c4cbe0;
+  line-height: 1.7;
+}
+
+.about ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
+@media (max-width: 900px) {
+  .about {
+    padding: 32px 20px 56px;
+    grid-template-columns: 1fr;
+  }
+}
